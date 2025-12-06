@@ -39,7 +39,7 @@ Controls:
 
 Press Z to toggle zoom mode.
 
-Close the window or press X to quit.
+Close the window to quit.
 
 How It Works
 Each planet (and the Sun) is represented as a Body object with properties:
@@ -54,57 +54,29 @@ Radius (for display)
 
 Color
 
-The simulation calculates the gravitational force between every pair of bodies:
+The simulation calculates the gravitational force between every pair of bodies using the formula:
 
-𝐹
-=
-𝐺
-𝑚
-1
-𝑚
-2
-𝑟
-2
-F=G 
-r 
-2
- 
-m 
-1
-​
- m 
-2
-​
- 
-​
- 
-where 
-𝐺
-G is the gravitational constant, 
-𝑚
-1
-,
-𝑚
-2
-m 
-1
-​
- ,m 
-2
-​
-  are masses, and 
-𝑟
-r is the distance.
+ini
+Copy code
+F = G * (m1 * m2) / r^2
+Where:
 
-Velocity and position are updated using simple Euler integration.
+G is the gravitational constant
+
+m1 and m2 are the masses of the two bodies
+
+r is the distance between them
+
+Acceleration is calculated as:
+
+ini
+Copy code
+a = F / m
+Velocity and position are updated using Euler integration.
 
 Trails are stored to show the path of each body.
 
 Zooming changes the scale factor to give a closer look at the inner planets.
-
-Example
-
-Orbits of planets around the Sun.
 
 Notes
 This is a 2D simplified simulation. It ignores relativistic effects and assumes all motion is in a single plane.
@@ -118,3 +90,7 @@ Mass in kilograms
 Time step: 1 day (DT = 86400 seconds)
 
 Visual radius is for display purposes only and does not affect calculations.
+
+Example Screenshot
+
+Orbits of planets around the Sun.
